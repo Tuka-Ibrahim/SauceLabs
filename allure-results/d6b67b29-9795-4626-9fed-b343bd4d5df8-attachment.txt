@@ -1,0 +1,6 @@
+
+################################################################################################################################################
+Starting Execution:	"1 out of 1" test cases in the current suite
+Test Method:		"TestPackage.CheckoutTest.validateOnlineOrderingFlow"
+Test Description:	"Validate the complete cycle to purchase a product"
+################################################################################################################################################

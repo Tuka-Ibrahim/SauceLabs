@@ -1,0 +1,24 @@
+{
+  "usernameValid": "standard_user",
+  "passwordValid": "secret_sauce",
+  "passwordInvalid": "wrongpassword",
+  "pageTittle": "PRODUCTS",
+  "removebtn": "REMOVE",
+  "scrollDownText": "FINISH",
+  "responsemsgs": {
+    "UsernameandPasswordInvalidError": "Username and password do not match any user in this service.",
+    "purchasedSuccess": "THANK YOU FOR YOU ORDER"
+  },
+  "item1Info": {
+    "sauce-labs-backpack-tittle": "Sauce Labs Backpack",
+    "sauce-labs-backpack-price": "$29.99",
+    "totalPrice": "Total: $32.39"
+  },
+  "credentials": {
+    "firstNameInput": "Tuka",
+    "lastNameInput": "Elorabi",
+    "postalCodeInput": "12511"
+  }
+}
+
+
