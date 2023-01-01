@@ -21,6 +21,13 @@ public class CheckoutTest {
     Login login;
     Products product;
     Cart cart;
+    /**
+     * This method is used before any testcase that will setup the device by
+     - setting its capabilities
+     - initializing the mobile operating system
+     - user login successfully to make the purchase process
+     - add products to the cart to continue to checkout
+      */
     @BeforeMethod(description = "Set Capabilities for the test device and login user by a valid username and password.")
     public void setupDevice() throws MalformedURLException {
         String AppName = System.getProperty("user.dir") + "/src/test/resources/testDataFiles/Android.SauceLabs.Mobile.Sample.app.2.2.0.apk";
@@ -39,6 +46,10 @@ public class CheckoutTest {
         cart=new Cart(driver);
         new MobileActions(driver);
     }
+    /**
+     * This method is to validate Online Ordering and complete the flow from adding element to cart till the checkout, Also Validate the price and success purchase.
+     */
+
     @Test(description = "Validate the complete cycle to purchase a product")
     public void validateOnlineOrderingFlow(){
         product.openCart()

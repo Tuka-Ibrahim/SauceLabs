@@ -10,6 +10,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 
+
 public class Cart {
     WebDriver driver;
     WebDriverWait webWait;
@@ -24,7 +25,10 @@ public class Cart {
         this.driver = driver;
         webWait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-
+/** This method is to validate that Title and price of the Item at PRODUCTS page equals the item and price at the cart
+@param productTittleInput is the chosen product 's tittle in the PRODUCTS PAGE
+ @param productSubtotal is the chosen product 's price in the PRODUCTS PAGE
+ */
     @Step("Validate the right product is added to the cart")
     public Cart validateRightProductisAdded(String productTittleInput,String productSubtotal){
         webWait.until(ExpectedConditions.visibilityOfElementLocated(productTittle));
@@ -34,12 +38,19 @@ public class Cart {
         softAssert.assertAll();
         return this;
     }
-    @Step("RemoveItem")
+    /**
+     This method is to click on the remove button in the cart page
+     */
+    @Step("Click on Remove button")
     public Cart ClickonRemoveBtn(){
         webWait.until(ExpectedConditions.elementToBeClickable(removeItemBtn));
         driver.findElement(removeItemBtn).click();
         return this;
     }
+    /**
+     This method used to validate the removing process of the product, if the item is removed then the remove button will
+     be no longer visible
+     */
     @Step("Validate removing items in the cart")
     public Cart validateRemovingProduct(){
         //We can find a bug here that Website don't show a feedback to the user when removing an item.
@@ -47,12 +58,20 @@ public class Cart {
         softAssert.assertAll();
         return this;
     }
+    /**
+     This method used to validate if the cart is empty, if there's no longer items in the cart then the counter of items exists on the cart icon
+     be no longer visible
+     */
+
     @Step("Validate that the cart is empty")
     public Cart validateCartIsEmpty(){
         softAssert.assertTrue(webWait.until(ExpectedConditions.invisibilityOfElementLocated(numberOfItemsInCart)),"Cart is Empty");
         softAssert.assertAll();
         return this;
     }
+    /**
+     This method is to take us to the checkout page
+    */
     @Step("Go to Checkout")
     public Checkout clickOnCheckout(){
         webWait.until(ExpectedConditions.elementToBeClickable(checkoutBtn));

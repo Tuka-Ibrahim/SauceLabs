@@ -19,6 +19,12 @@ public class Login {
         this.driver=driver;
         webWait =new WebDriverWait(driver, Duration.ofSeconds(10));
     }
+    /**
+     * This method is to fill the credntials needed to login
+     * @param usernameInput is from the test data: username to login
+     * @param passwordInput is from the test data: password to login
+     */
+
     public Products fillLoginForm(String usernameInput,String passwordInput){
         webWait.until(ExpectedConditions.visibilityOfElementLocated(username));
         driver.findElement(username).sendKeys(usernameInput);
@@ -27,31 +33,11 @@ public class Login {
         driver.findElement(loginBtn).click();
         return new Products(driver);
     }
+    /**
+     * This method is to return the error msg when login fails
+     */
+
     public String getFailedLoginErrorMsg(){
         return driver.findElement(loginFailedError).getText();
     }
-
-
-
-//    private SHAFT.GUI.WebDriver driver;
-//    private String url = "https://www.google.com/";
-//    private String title = "Google";
-//    private By searchBox = By.name("q");
-//
-//    public Home(SHAFT.GUI.WebDriver driver){
-//        this.driver = driver;
-//    }
-//
-//    @Step("When I navigate to the Home page.")
-//    public Home navigate(){
-//        driver.browser().navigateToURL(url);
-//        return this;
-//    }
-//
-//    @Step("Then the browser title should be 'Google'.")
-//    public Home verifyBrowserTitleIsCorrect(){
-//        driver.verifyThat().browser().title().isEqualTo(title).perform();
-//        return this;
-//    }
-//
 }

@@ -27,7 +27,13 @@ public class Checkout {
         this.driver = driver;
         webWait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-    @Step("Fill your ceredntials to continue to checkout")
+    /**
+      This method is to fill the credentials needed in the checkout page we send the input to the page by paramters in the json file
+     @param firstNameInput from the test data: firstname exists in the json file
+     @param lastNameInput from the test data: lastname exists in the json file
+     @param postalCodeInput from the test data: postal code exists in the json file
+     */
+    @Step("Fill your credentials to continue to checkout")
     public Checkout fillCredntialsinCheckout(String firstNameInput,String lastNameInput,String postalCodeInput){
         webWait.until(ExpectedConditions.visibilityOfElementLocated(firstName));
         driver.findElement(firstName).sendKeys(firstNameInput);
@@ -35,11 +41,20 @@ public class Checkout {
         driver.findElement(postalCode).sendKeys(postalCodeInput);
         return this;
     }
+    /**
+    This method is to click on continue button
+     */
+
     @Step("Scroll down to Finish btn")
     public Checkout clickOnContinue(){
         driver.findElement(continueBtn).click();
         return this;
     }
+    /** This method is to validate the tittle , subtotal and total of the product in the checkout
+     * @param productTittleInput from test data: product's tittle
+     * @param productSubtotal from test data: product 's subtotal without calculating shipping fees
+     * @param productTotal from test data: product's total after calculating the shipping fees
+    */
     @Step("Validate tittle,subtotal and total of the price")
     public Checkout validateProductInformationinCheckout(String productTittleInput,String productSubtotal,String productTotal){
         webWait.until(ExpectedConditions.visibilityOfElementLocated(productTittle));
@@ -49,11 +64,19 @@ public class Checkout {
         softAssert.assertAll();
         return this;
     }
+    /**
+     * This method is to scroll down to specific text
+     * @param text the text that the method will search for
+     */
+
     @Step("Scroll down to Finish btn")
     public Checkout scrollDown(String text){
         MobileActions.scrollDownToSpecificText(text);
         return this;
     }
+    /*
+    * This method is take us to purchaseSuccess page
+    */
     @Step("Click on Finish btn")
     public PurchaseSuccessPage clickOnFinishButton(){
         webWait.until(ExpectedConditions.elementToBeClickable(finishBtn));

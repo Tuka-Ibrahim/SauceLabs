@@ -19,6 +19,11 @@ public class CartTest {
     JsonFileManager testData=new JsonFileManager("src/test/resources/testDataFiles/simpleJSON.json");
     Login login;
     Products product;
+    /**
+     * This method is used before any testcase that will setup the device by setting its capabilities
+     and initializing the mobile operating system
+     Also this method will make the user login successfully to make the purchase process
+     * */
     @BeforeMethod(description = "Set Capabilities for the test device and login user by a valid username and password.")
     public void setupDevice() throws MalformedURLException {
         String AppName = System.getProperty("user.dir") + "/src/test/resources/testDataFiles/Android.SauceLabs.Mobile.Sample.app.2.2.0.apk";
@@ -35,6 +40,9 @@ public class CartTest {
         product=new Products(driver);
         new MobileActions(driver);
     }
+    /**
+     * This method is to Validate that tittle and price of the product added to the cart is the same as the product selected in the home page
+     */
     @Test(description = "Validate that tittle and price of the product added to the cart is the same as the product selected in the home page")
     public void validateAdditionofTheProductoCartProcess(){
         product.addProducttoCart()
@@ -45,6 +53,9 @@ public class CartTest {
                         testData.getTestData("item1Info.sauce-labs-backpack-price")
                 );
     }
+    /**
+     * This method is to Validate removing products in the cart
+      */
     @Test(description = "Validate removing products in the cart")
     public void validateRemovingProducts(){
         product.addProducttoCart()

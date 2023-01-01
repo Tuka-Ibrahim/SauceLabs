@@ -20,6 +20,10 @@ public class JsonFileManager {
             fail(e.getMessage());
         }
     }
+    /**
+    This method is to get the test data from the JSON file and change it to string
+    @param jsonPath is the jsonpath to the element you want to get its data from
+     */
 
     public String getTestData(String jsonPath) {
         Object testData = null;

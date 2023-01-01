@@ -20,6 +20,11 @@ By backHomeBtn=new AppiumBy.ByAccessibilityId("test-BACK HOME");
         this.driver = driver;
         webWait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
+    /**
+     * This method is to validate that the product is purchased successfully
+     * @param msg is the expected msg to show if the product is purchased successfully
+     */
+
     @Step("Validate success purchase")
     public PurchaseSuccessPage validateSucccessPurchase(String msg){
         webWait.until(ExpectedConditions.elementToBeClickable(backHomeBtn));

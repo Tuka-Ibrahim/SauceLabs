@@ -21,17 +21,25 @@ public class Products {
         this.driver=driver;
         webWait =new WebDriverWait(driver, Duration.ofSeconds(10));
     }
+    /**
+     * This method is to get product page's tittle
+     */
     @Step("Get Products Page's tittle")
     public String getPageTittleinProductsPage(){
         webWait.until(ExpectedConditions.visibilityOfElementLocated(productsPageTittle));
         return driver.findElement(productsPageTittle).getText();
     }
+    /** This method is to add products to the cart
+    * */
     @Step("Add product to the cart")
     public Products addProducttoCart(){
         webWait.until(ExpectedConditions.elementToBeClickable(product1AddtoCartBtn));
         driver.findElement(product1AddtoCartBtn).click();
         return this;
     }
+    /**
+     This method is to check that item is added and button add to cart is now Remove button
+     */
     @Step("Check that item is added and button add to cart is now Remove button")
     public Products validateAddToCartBtn(String btnText){
         webWait.until(ExpectedConditions.visibilityOfElementLocated(removeBtn));
@@ -40,6 +48,10 @@ public class Products {
         softAssert.assertAll();
         return this;
     }
+    /**
+     * This method is to take us to the cart page
+     */
+
     @Step("Open Cart")
     public Cart openCart(){
         webWait.until(ExpectedConditions.elementToBeClickable(cartIcon));
