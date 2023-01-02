@@ -1,7 +1,7 @@
 
 # SWAG Labs apk Test Automation 
 
-Program to automate tests on SauceLabs Apk on Andriod devices Using Appium and following the POM Design
+Program to automate tests on SauceLabs Apk on Andriod devices Using Appium and by following the Page Object Model design pattern
 
 
 
@@ -17,7 +17,7 @@ Program to automate tests on SauceLabs Apk on Andriod devices Using Appium and f
 
 ## Deployment
 
-To deploy this project you have to install Appium version 2
+To deploy this project you have to install the following
 
 ```bash
 // To install Latest appium version 2.xx
