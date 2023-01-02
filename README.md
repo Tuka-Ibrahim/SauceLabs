@@ -10,6 +10,11 @@ Program to automate tests on SauceLabs Apk on Andriod devices Using Appium and f
 ![Logo](https://seeklogo.com/images/S/sauce-labs-logo-413E1BDE63-seeklogo.com.png)
 
 
+## Installation Dependencies
+- Java
+- Maven
+- Node JS
+
 ## Deployment
 
 To deploy this project you have to install Appium version 2
@@ -30,8 +35,6 @@ appium
 // Download apk
 https://github.com/saucelabs/sample-app-mobile/releases
 ```
-
-
 ## Test Casses Implemented Inside
 
 - TC1: Login with Valid Email and password and validate that login is performed successfully
