@@ -1,5 +1,5 @@
 
-# SWAG Labs apk Test Automation 
+# Sauce Labs apk Test Automation 
 
 Program to automate tests on SauceLabs Apk on Andriod devices Using Appium and following the POM Design
 
