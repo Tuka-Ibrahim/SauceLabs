@@ -47,6 +47,19 @@ public class Cart {
         driver.findElement(removeItemBtn).click();
         return this;
     }
+      /**
+     This method used to validate the removing process of the product, if the item is removed then the item will
+     be no longer visible
+     @param item is the locator we want to check its invisibility
+     */
+    public boolean isElementExist(By item ){
+        try{
+            webWait.until(ExpectedConditions.invisibilityOfElementLocated(item));
+        } catch (Exception e){
+            return false;
+        }
+        return true;
+    }
     /**
      This method used to validate the removing process of the product, if the item is removed then the remove button will
      be no longer visible
@@ -54,7 +67,7 @@ public class Cart {
     @Step("Validate removing items in the cart")
     public Cart validateRemovingProduct(){
         //We can find a bug here that Website don't show a feedback to the user when removing an item.
-        softAssert.assertTrue(webWait.until(ExpectedConditions.invisibilityOfElementLocated(removeItemBtn)),"Item removed");
+        softAssert.assertTrue(isElementExist(removeItemBtn),"Item removed");
         softAssert.assertAll();
         return this;
     }
@@ -62,13 +75,13 @@ public class Cart {
      This method used to validate if the cart is empty, if there's no longer items in the cart then the counter of items exists on the cart icon
      be no longer visible
      */
-
     @Step("Validate that the cart is empty")
     public Cart validateCartIsEmpty(){
-        softAssert.assertTrue(webWait.until(ExpectedConditions.invisibilityOfElementLocated(numberOfItemsInCart)),"Cart is Empty");
+        softAssert.assertTrue(isElementExist(numberOfItemsInCart),"Cart is Empty");
         softAssert.assertAll();
         return this;
     }
+
     /**
      This method is to take us to the checkout page
     */
